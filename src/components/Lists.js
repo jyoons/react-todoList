@@ -2,14 +2,15 @@ import React from 'react'
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import List from './List';
 
-const Lists = React.memo(({todoData, setTodoData}) => {
+const Lists = React.memo(({todoData, setTodoData, handleClick}) => {
+  console.log('Lists components')
   const handleEnd =(result)=>{
     if(! result.destination) return;
     const newTodoData = todoData;
     const [reorderItem] = newTodoData.splice(result.source.index, 1); // data 삭제
     newTodoData.splice(result.destination.index, 0, reorderItem); //삭제한 data 추가
     setTodoData(newTodoData)
-    console.log(result)
+    localStorage.setItem('todoData', JSON.stringify(newTodoData))
   }
   return(
     <div>
@@ -25,6 +26,7 @@ const Lists = React.memo(({todoData, setTodoData}) => {
               >
                 {(provided, snapshot) => (
                   <List   
+                  handleClick={handleClick}
                   key={data.id}
                   title={data.title}
                   id={data.id}

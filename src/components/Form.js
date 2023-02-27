@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Form({setTodoData, value, setValue}) {
+export default function Form({todoData, setTodoData, value, setValue}) {
     const handleSubmit = (e) =>{
         e.preventDefault();
         let newTodo ={
@@ -10,6 +10,7 @@ export default function Form({setTodoData, value, setValue}) {
         }
         // setTodoData({todoData : [...todoData, newTodo], value:''})
         setTodoData((prev) => [...prev, newTodo])
+        localStorage.setItem('todoData', JSON.stringify([...todoData, newTodo]))
         setValue('')
     }
     const handleChange = (e) => {
