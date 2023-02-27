@@ -3,7 +3,6 @@ import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import List from './List';
 
 const Lists = React.memo(({todoData, setTodoData, handleClick}) => {
-  console.log('Lists components')
   const handleEnd =(result)=>{
     if(! result.destination) return;
     const newTodoData = todoData;
