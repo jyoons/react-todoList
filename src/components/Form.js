@@ -9,7 +9,7 @@ export default function Form({todoData, setTodoData, value, setValue}) {
         completed : false
         }
         // setTodoData({todoData : [...todoData, newTodo], value:''})
-        setTodoData((prev) => [...prev, newTodo])
+        setTodoData((prev) => [...prev, newTodo]) // : 함수형 업데이트(functional update) 기존의 값에 newTodo 객체를 더한 배열로 업데이트
         localStorage.setItem('todoData', JSON.stringify([...todoData, newTodo]))
         setValue('')
     }
