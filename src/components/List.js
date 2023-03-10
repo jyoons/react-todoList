@@ -73,4 +73,9 @@ const List = React.memo(({id, title, completed, todoData, setTodoData, provided,
   }
 })
 // export const MemoizedMovie = React.memo(List);
+// todoList
+// git
+// https://github.com/jyoons/react-todoList
+// 배포URL
+// https://jyoons.github.io/react-todoList/
 export default List
